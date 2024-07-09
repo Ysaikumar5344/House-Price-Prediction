@@ -14,7 +14,7 @@ neighbor=1 if Neighborhood=="Rural" else 2 if Neighborhood=="Suburb" else 3
 YearBuilt = st.number_input("Enter the Year of Construction",min_value=1900,max_value=2030,step=1)
 
 input_data=np.array([[SquareFeet],[Bedrooms],[Bathrooms],[neighbor],[YearBuilt]])
-Price = model.predict([[SquareFeet,Bedrooms,Bathrooms,neighbor,YearBuilt]])
+
 if st.button("Submit"):
   prediction=model.predict(input_data)
-  st.write("The price for the flat with given details is RS.",Price)
+  st.write(f"The price for the flat with given details is RS.{prediction[0]:,.2f}")
